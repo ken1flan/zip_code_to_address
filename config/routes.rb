@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
   resources :contacts
+  resources :zip_codes, only: [:index] do
+    collection do
+      get '/:code', to: "zip_codes#index"
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
